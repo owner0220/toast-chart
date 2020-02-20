@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="./tui-chart.css"/>
+    <script type="text/javascript" src="./tui-chart-all.js"></script>
+    <script type="text/javascript" src="./tui-chart-polyfill.js"></script>
+    <script type="text/javascript" src="./tui-chart.js"></script>
+    <script type="text/javascript" src="./maps/south-korea.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chart-area"></div>
+    <script>
+        
+        
+var container = document.getElementById('chart-area');
+var data = {
+    series: [
+        {
+            code: 'KR-SU',
+            data: 12.5
+        },
+        {
+            code: 'KR-BS',
+            data: 14.7
+        },
+        {
+            code: 'KR-DG',
+            data: 14.1
+        },
+        {
+            code: 'KR-IC',
+            data: 12.1
+        },
+        {
+            code: 'KR-GJ',
+            data: 13.8
+        },
+        {
+            code: 'KR-DJ',
+            data: 13.0
+        },
+        {
+            code: 'KR-US',
+            data: 14.1
+        },
+        {
+            code: 'KR-GG',
+            data: 11.6
+        },
+        {
+            code: 'KR-GW',
+            data: 11.3
+        },
+        {
+            code: 'KR-NC',
+            data: 11.7
+        },
+        {
+            code: 'KR-SC',
+            data: 11.9
+        },
+        {
+            code: 'KR-NJ',
+            data: 12.8
+        },
+        {
+            code: 'KR-SJ',
+            data: 13.6
+        },
+        {
+            code: 'KR-SG',
+            data: 14.2
+        },
+        {
+            code: 'KR-JJ',
+            data: 15.5
+        },
+        {
+            code: 'KR-SE',
+            data: 11.8
+        }
+    ]
+};
+var options = {
+    chart: {
+        width: 500,
+        height: 680,
+        title: 'Average annual temperature of South Korea (°C)'
+    },
+    map: 'south-korea',
+    legend: {
+        align: 'right'
+    },
+    tooltip: {
+        suffix: '°C'
+    }
+};
+var theme = {
+    series: {
+        startColor: '#ffefef',
+        endColor: '#ac4142',
+        overColor: '#75b5aa'
+    }
+};
+
+// For apply theme
+
+// tui.chart.registerTheme('myTheme', theme);
+// options.theme = 'myTheme';
+
+tui.chart.mapChart(container, data, options);
+
+    </script>
+</body>
+</html>
+
+
+
+
+

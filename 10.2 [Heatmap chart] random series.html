@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="./tui-chart.css"/>
+    <script type="text/javascript" src="./tui-chart-all.js"></script>
+    <script type="text/javascript" src="./tui-chart-polyfill.js"></script>
+    <script type="text/javascript" src="./tui-chart.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chart-area"></div>
+    <script>
+        
+    var container = document.getElementById('chart-area');
+
+var weeks = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+var hours = [];
+
+var i, j;
+for (i = 0; i < 24; i++) {
+    hours.push(i);
+}
+
+var counts = [];
+var row = [];
+for (i = 0; i < weeks.length; i++) {
+    row = [];
+    for (j = 0; j < hours.length; j++) {
+        row.push(Math.floor(Math.random() * 9999));
+    }
+    counts.push(row);
+}
+
+
+var data = {
+    categories: {
+        x: hours.reverse(),
+        y: weeks.reverse()
+    },
+    series: counts
+};
+
+var options = {
+    chart: {
+        width: 1160,
+        height: 550,
+        title: 'Number of visiting customers'
+    },
+    yAxis: {},
+    xAxis: {
+        suffix: 'h'
+    },
+    tooltip: {},
+    series: {
+        showLabel: false
+    },
+    chartExportMenu: {
+        visible: true
+    },
+    legend: {
+        align: 'bottom'
+    }
+};
+
+var theme = {
+    series: {
+        startColor: '#ffefef',
+        endColor: '#ac4142',
+        overColor: '#75b5aa',
+        borderColor: '#F4511E'
+    }
+};
+
+// For apply theme
+
+// tui.chart.registerTheme('myTheme', theme);
+// options.theme = 'myTheme';
+
+tui.chart.heatmapChart(container, data, options);
+
+        
+    </script>
+</body>
+</html>
+
+
+
+
+

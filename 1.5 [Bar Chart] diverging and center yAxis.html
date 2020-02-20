@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="./tui-chart.css"/>
+    <script type="text/javascript" src="./tui-chart-all.js"></script>
+    <script type="text/javascript" src="./tui-chart-polyfill.js"></script>
+    <script type="text/javascript" src="./tui-chart.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chart-area"></div>
+    <script>
+        
+        
+var container = document.getElementById('chart-area');
+var data = {
+    categories: ['100 ~', '90 ~ 99', '80 ~ 89', '70 ~ 79', '60 ~ 69', '50 ~ 59', '40 ~ 49', '30 ~ 39', '20 ~ 29', '10 ~ 19', '0 ~ 9'],
+    series: [
+        {
+            name: 'Male',
+            data: [3832, 38696, 395906, 1366738, 2482657, 4198869, 4510524, 3911135, 3526321, 2966126, 2362433]
+        },
+        {
+            name: 'Female',
+            data: [12550, 128464, 839761, 1807901, 2630336, 4128479, 4359815, 3743214, 3170926, 2724383, 2232516]
+        }
+    ]
+};
+var options = {
+    chart: {
+        width: 1160,
+        height: 650,
+        title: 'Population Distribution',
+        format: '1,000'
+    },
+    yAxis: {
+        title: 'Age Group',
+        align: 'center'
+    },
+    xAxis: {
+        labelMargin: 10
+    },
+    series: {
+        diverging: true
+    }
+};
+var theme = {
+    series: {
+        colors: [
+            '#83b14e', '#458a3f', '#295ba0', '#2a4175', '#289399',
+            '#289399', '#617178', '#8a9a9a', '#516f7d', '#dddddd'
+        ]
+    }
+};
+
+// For apply theme
+
+// tui.chart.registerTheme('myTheme', theme);
+// options.theme = 'myTheme';
+
+tui.chart.barChart(container, data, options);
+
+    </script>
+</body>
+</html>
+
+
+
+
+

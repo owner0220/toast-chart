@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="./tui-chart.css"/>
+    <script type="text/javascript" src="./tui-chart-all.js"></script>
+    <script type="text/javascript" src="./tui-chart-polyfill.js"></script>
+    <script type="text/javascript" src="./tui-chart.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chart-area"></div>
+    <script>
+        
+var container = document.getElementById('chart-area');
+var data = {
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    series: [
+        {
+            name: 'Seoul',
+            data: [[-8.3, 0.3], [-5.8, 3.1], [-0.6, 9.1], [5.8, 16.9], [11.5, 22.6], [16.6, 26.6], [21.2, 28.8], [21.8, 30.0], [15.8, 25.6], [8.3, 19.6], [1.4, 11.1], [-5.2, 3.2]]
+        }
+    ]
+};
+var options = {
+    chart: {
+        width: 1160,
+        height: 540,
+        title: 'Temperature Range'
+    },
+    yAxis: {
+        title: 'Month',
+        pointOnColumn: true
+    },
+    xAxis: {
+        title: 'Temperature (Celsius)'
+    },
+    series: {
+        showLabel: true,
+        zoomable: true
+    },
+    plot: {
+        lines: [{
+            value: 'May',
+            color: '#ff5a46'
+        }, {
+            value: 'Aug',
+            color: '#00a9ff'
+        }],
+        bands: [{
+            range: [['Apr', 'June'], ['May', 'July']],
+            color: '#ffb840',
+            opacity: 0.15
+        }, {
+            range: [['Sep', 'Nov'], ['Oct', 'Dec']],
+            color: '#19bc9c',
+            opacity: 0.15,
+            mergeOverlappingRanges: true
+        }, {
+            range: ['Jan', 'Mar'],
+            color: '#4b96e6',
+            opacity: 0.15
+        }]
+    }
+};
+
+var theme = {
+    series: {
+        colors: [
+            '#83b14e', '#458a3f', '#295ba0', '#2a4175', '#289399',
+            '#289399', '#617178', '#8a9a9a', '#516f7d', '#dddddd'
+        ]
+    }
+};
+
+// For apply theme
+
+// tui.chart.registerTheme('myTheme', theme);
+// options.theme = 'myTheme';
+
+var chart = tui.chart.areaChart(container, data, options);
+
+        
+    </script>
+</body>
+</html>
+
+
+
+
+

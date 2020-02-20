@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="./tui-chart.css"/>
+    <script type="text/javascript" src="./tui-chart-all.js"></script>
+    <script type="text/javascript" src="./tui-chart-polyfill.js"></script>
+    <script type="text/javascript" src="./tui-chart.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chart-area"></div>
+    <script>
+        
+        
+var container = document.getElementById('chart-area');
+var data = {
+    categories: ['Browser'],
+    seriesAlias: {
+        pie1: 'pie',
+        pie2: 'pie'
+    },
+    series: {
+        pie1: [
+            {
+                name: 'Chrome',
+                data: 46.02
+            },
+            {
+                name: 'IE',
+                data: 20.47
+            },
+            {
+                name: 'Firefox',
+                data: 17.71
+            },
+            {
+                name: 'Safari',
+                data: 5.45
+            },
+            {
+                name: 'Opera',
+                data: 3.10
+            },
+            {
+                name: 'Etc',
+                data: 7.25
+            }
+        ],
+        pie2: [
+            {
+                name: 'Chrome 1',
+                data: 26.02
+            },
+            {
+                name: 'Chrome 2',
+                data: 20
+            },
+            {
+                name: 'IE 1',
+                data: 5.47
+            },
+            {
+                name: 'IE1 2',
+                data: 7
+            }, {
+                name: 'IE 3',
+                data: 8
+            },
+            {
+                name: 'Firefox 1',
+                data: 7.71
+            },
+            {
+                name: 'Firefox 2',
+                data: 10
+            },
+            {
+                name: 'Safari 1',
+                data: 5.45
+            },
+            {
+                name: 'Opera 1',
+                data: 3.10
+            },
+            {
+                name: 'Etc 1',
+                data: 7.25
+            }
+        ]
+    }
+};
+var options = {
+    chart: {
+        width: 700,
+        height: 700,
+        title: 'Usage share of web browsers'
+    },
+    series: {
+        pie1: {
+            radiusRange: ['57%'],
+            labelAlign: 'center',
+            showLegend: true
+        },
+        pie2: {
+            radiusRange: ['70%', '100%'],
+            labelAlign: 'outer',
+            showLegend: true
+        }
+    },
+    legend: {
+        visible: false
+    },
+    tooltip: {
+        suffix: '%'
+    },
+    theme: 'newTheme'
+};
+
+tui.chart.registerTheme('newTheme', {
+    series: {
+        pie1: {
+            colors: ['#00a9ff', '#ffb840', '#ff5a46', '#00bd9f', '#785fff', '#f28b8c', '#989486', '#516f7d', '#29dbe3', '#dddddd'],
+            label: {
+                color: '#fff',
+                fontFamily: 'sans-serif'
+            }
+        },
+        pie2: {
+            colors: [
+                '#33baff', '#66ccff',
+                '#ffc666', '#ffd48c', '#FFDB9F',
+                '#ff7b6b', '#ff9c90',
+                '#33cab2',
+                '#937fff', '#f5a2a3'],
+            label: {
+                color: '#fff',
+                fontFamily: 'sans-serif'
+            }
+        }
+    }
+});
+
+tui.chart.comboChart(container, data, options);
+
+    </script>
+</body>
+</html>
+
+
+
+
+

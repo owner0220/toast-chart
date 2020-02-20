@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="./tui-chart.css"/>
+    <script type="text/javascript" src="./tui-chart-all.js"></script>
+    <script type="text/javascript" src="./tui-chart-polyfill.js"></script>
+    <script type="text/javascript" src="./tui-chart.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chart-area"></div>
+    <script>
+        
+var container = document.getElementById('chart-area');
+var data = {
+    categories: ['May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    series: [
+        {
+            name: 'Budget',
+            data: [4000, 5000, 3000, 5000, 7000, 6000, 4000, 1000]
+        },
+        {
+            name: 'Income',
+            data: [7000, 8000, 1000, 7000, 2000, 7000, 3000, 5000]
+        },
+        {
+            name: 'Expenses',
+            data: [-5000, -4000, -4000, -6000, -3000, -4000, -5000, -7000]
+        }
+    ]
+};
+var options = {
+    chart: {
+        width: 1160,
+        height: 650,
+        title: 'Monthly Revenue',
+        format: '1,000'
+    },
+    yAxis: {
+        title: 'Month'
+    },
+    xAxis: {
+        title: 'Amount',
+        min: -10000,
+        max: 10000
+    },
+    series: {
+        showLabel: true
+    }
+};
+var theme = {
+    series: {
+        colors: [
+            '#83b14e', '#458a3f', '#295ba0', '#2a4175', '#289399',
+            '#289399', '#617178', '#8a9a9a', '#516f7d', '#dddddd'
+        ]
+    }
+};
+
+// For apply theme
+
+// tui.chart.registerTheme('myTheme', theme);
+// options.theme = 'myTheme';
+
+tui.chart.barChart(container, data, options);
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+

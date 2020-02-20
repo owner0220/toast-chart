@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="./tui-chart.css"/>
+    <script type="text/javascript" src="./tui-chart-all.js"></script>
+    <script type="text/javascript" src="./tui-chart-polyfill.js"></script>
+    <script type="text/javascript" src="./tui-chart.js"></script>
+    <script type="text/javascript" src="./maps/thailand.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chart-area"></div>
+    <script>
+        
+var container = document.getElementById('chart-area');
+var data = {
+    series: [
+        {
+            code: 'TH-KM',
+            data: 1498
+        },
+        {
+            code: 'TH-CB',
+            data: 1133.8
+        },
+        {
+            code: 'TH-NR',
+            data: 1028.1
+        },
+        {
+            code: 'TH-UR',
+            data: 1593.2
+        },
+        {
+            code: 'TH-KK',
+            data: 1214.4
+        },
+        {
+            code: 'TH-CM',
+            data: 1126.2
+        },
+        {
+            code: 'TH-CR',
+            data: 1704.8
+        },
+        {
+            code: 'TH-MH',
+            data: 1279.5
+        },
+        {
+            code: 'TH-TK',
+            data: 1057.1
+        },
+        {
+            code: 'TH-ST',
+            data: 1561.6
+        },
+        {
+            code: 'TH-PN',
+            data: 1081.2
+        },
+        {
+            code: 'TH-KC',
+            data: 1049.6
+        },
+        {
+            code: 'TH-PK',
+            data: 988.9
+        },
+        {
+            code: 'TH-PU',
+            data: 2237.5
+        },
+        {
+            code: 'TH-SU',
+            data: 1956.4
+        },
+        {
+            code: 'TH-SL',
+            data: 1985.1
+        }
+    ]
+};
+var options = {
+    chart: {
+        width: 500,
+        height: 770,
+        title: 'Average annual precipitation\nof Thailand (mm)',
+        format: '1,000'
+    },
+    map: 'thailand',
+    legend: {
+        align: 'right'
+    }
+};
+var theme = {
+    series: {
+        startColor: '#ffefef',
+        endColor: '#ac4142',
+        overColor: '#75b5aa'
+    }
+};
+
+// For apply theme
+
+// tui.chart.registerTheme('myTheme', theme);
+// options.theme = 'myTheme';
+
+tui.chart.mapChart(container, data, options);
+
+        
+    </script>
+</body>
+</html>
+
+
+
+
+

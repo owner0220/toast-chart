@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="./tui-chart.css"/>
+    <script type="text/javascript" src="./tui-chart-all.js"></script>
+    <script type="text/javascript" src="./tui-chart-polyfill.js"></script>
+    <script type="text/javascript" src="./tui-chart.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chart-area"></div>
+    <script>
+        
+        
+var container = document.getElementById('chart-area');
+var data = {
+    categories: ['July', 'August'],
+    series: [{
+        name: 'Budget',
+        data: 25,
+        markers: [28, 2, 15],
+        ranges: [[-1, 10], [10, 20], [20, 30]]
+    }, {
+        name: 'Hello',
+        data: 11,
+        markers: [20],
+        ranges: [[0, 8], [8, 15]]
+    }, {
+        name: 'World',
+        data: 30,
+        markers: [25],
+        ranges: [[0, 10], [10, 19], [19, 28]]
+    }, {
+        name: 'Income',
+        data: 23,
+        markers: [],
+        ranges: [[19, 25], [13, 19], [0, 13]]
+    }]
+};
+var options = {
+    chart: {
+        width: 1160,
+        height: 500,
+        title: 'Monthly Revenue',
+        format: '1,000'
+    },
+    legend: {
+        visible: true
+    },
+    xAxis: {
+        max: 35
+    },
+    series: {
+        showLabel: true,
+        vertical: false
+    }
+};
+var theme = {
+    series: {
+        ranges: [{ color: 'gray', opacity: 0.7 },
+            null,
+            { color: 'purple' }
+        ]
+    }
+};
+
+// For apply theme
+
+tui.chart.registerTheme('myTheme', theme);
+options.theme = 'myTheme';
+
+tui.chart.bulletChart(container, data, options);
+
+    </script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="./tui-chart.css"/>
+    <script type="text/javascript" src="./tui-chart-all.js"></script>
+    <script type="text/javascript" src="./tui-chart-polyfill.js"></script>
+    <script type="text/javascript" src="./tui-chart.js"></script>
+    <script type="text/javascript" src="./maps/china.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chart-area"></div>
+    <script>
+        
+var container = document.getElementById('chart-area'),
+    data = {
+        series: [
+            {
+                code: 'CN-AH',
+                data: 975
+            },
+            {
+                code: 'CN-BJ',
+                data: 577
+            },
+            {
+                code: 'CN-CQ',
+                data: 1138
+            },
+            {
+                code: 'CN-FJ',
+                data: 1347
+            },
+            {
+                code: 'CN-GD',
+                data: 1682
+            },
+            {
+                code: 'CN-GA',
+                data: 316
+            },
+            {
+                code: 'CN-GZ',
+                data: 1854
+            },
+            {
+                code: 'CN-HN',
+                data: 1625
+            },
+            {
+                code: 'CN-HE',
+                data: 645
+            },
+            {
+                code: 'CN-HK',
+                data: 2215
+            },
+            {
+                code: 'CN-HL',
+                data: 521
+            },
+            {
+                code: 'CN-HN',
+                data: 1377
+            },
+            {
+                code: 'CN-HU',
+                data: 1222
+            },
+            {
+                code: 'CN-JL',
+                data: 578
+            },
+            {
+                code: 'CN-JS',
+                data: 1036
+            },
+            {
+                code: 'CN-JX',
+                data: 1521
+            },
+            {
+                code: 'CN-LN',
+                data: 684
+            },
+            {
+                code: 'CN-NM',
+                data: 402
+            },
+            {
+                code: 'CN-NH',
+                data: 194
+            },
+            {
+                code: 'CN-QH',
+                data: 368
+            },
+            {
+                code: 'CN-SA',
+                data: 573
+            },
+            {
+                code: 'CN-SH',
+                data: 921
+            },
+            {
+                code: 'CN-SD',
+                data: 720
+            },
+            {
+                code: 'CN-SI',
+                data: 1111
+            },
+            {
+                code: 'CN-SX',
+                data: 457
+            },
+            {
+                code: 'CN-TJ',
+                data: 561
+            },
+            {
+                code: 'CN-TW',
+                data: 1714
+            },
+            {
+                code: 'CN-XY',
+                data: 236
+            },
+            {
+                code: 'CN-TB',
+                data: 420
+            },
+            {
+                code: 'CN-YN',
+                data: 1007
+            },
+            {
+                code: 'CN-ZJ',
+                data: 1376
+            }
+        ]
+    };
+var options = {
+    chart: {
+        width: 900,
+        height: 800,
+        title: 'Average annual precipitation of China (mm)',
+        format: '1,000'
+    },
+    map: 'china',
+    legend: {
+        align: 'top'
+    },
+    tooltip: {
+        suffix: 'mm'
+    }
+};
+var theme = {
+    series: {
+        startColor: '#ffefef',
+        endColor: '#ac4142',
+        overColor: '#75b5aa'
+    }
+};
+
+// For apply theme
+
+// tui.chart.registerTheme('myTheme', theme);
+// options.theme = 'myTheme';
+
+tui.chart.mapChart(container, data, options);
+
+        
+    </script>
+</body>
+</html>
+
+
+
+
+
